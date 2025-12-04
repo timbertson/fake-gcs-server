@@ -16,7 +16,6 @@ jobs:
       - run: ./chored 'docker' login --json "$OPTS"
         env:
           OPTS: '{"user":"${{ github.actor }}","token":"${{ secrets.GITHUB_TOKEN }}"}'
-      - run: ./chored 'docker' build
-      - run: ./chored ci --json "$OPTS"
+      - run: ./chored 'docker' build --json "$OPTS"
         env:
-          OPTS: '{"docker":true}'
+          OPTS: '{"push":true}'

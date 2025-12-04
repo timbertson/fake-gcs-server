@@ -37,8 +37,7 @@ function files(): Render.File[] {
 					'runs-on': 'ubuntu-latest',
 					steps: Workflow.chores([
 						{ module: 'docker', name: 'login', opts: { user: Workflow.expr('github.actor'), token: Workflow.secret('GITHUB_TOKEN') } },
-						{ module: 'docker', name: 'build' },
-						{ name: 'ci', opts: { docker: true } },
+						{ module: 'docker', name: 'build', opts: { push: true } },
 					]),
 				}
 			},
